@@ -39,7 +39,7 @@ export default function ContactsList() {
             </div>
             <div className="flex flex-col justify-between items-start">
               <div className="text-xs text-gray-400">{item?.label}</div>
-              <div className=" text-accent">{item?.value}</div>
+              <div className=" text-accent-content">{item?.value}</div>
             </div>
           </div>
           {index !== data?.length - 1 && <div className="divider"></div>}

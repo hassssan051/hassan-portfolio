@@ -1,8 +1,10 @@
 import React from "react";
+import { Layout } from "antd";
+const { Footer } = Layout;
 
-export default function Footer() {
+export default function CustomFooter() {
   return (
-    <footer className="footer footer-center p-5 bg-primary text-primary-content">
+    <Footer className="footer footer-center p-5 bg-primary text-primary-content " >
       <div>
         <svg
           width="50"
@@ -61,6 +63,6 @@ export default function Footer() {
           </a>
         </div>
       </div>
-    </footer>
+    </Footer>
   );
 }
