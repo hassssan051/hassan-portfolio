@@ -4,7 +4,7 @@ const { Footer } = Layout;
 
 export default function CustomFooter() {
   return (
-    <Footer className="footer footer-center p-5 bg-primary text-primary-content " >
+    <Footer className="footer footer-center p-5 bg-primary text-primary-content" >
       <div>
         <svg
           width="50"

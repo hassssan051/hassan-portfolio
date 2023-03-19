@@ -30,9 +30,9 @@ export default function ContactsList() {
     },
   ];
   return (
-    <ul className="p-8 rounded-xl bg-base-100 mt-8 w-full">
+    <ul className="p-8  rounded-xl bg-base-100 mt-8 ">
       {data?.map((item, index) => (
-        <li>
+        <li key={index}>
           <div className="flex gap-x-3 items-center">
             <div className="bg-base-200 hover:bg-base-300 cursor-pointer p-4">
               {item?.icon}
