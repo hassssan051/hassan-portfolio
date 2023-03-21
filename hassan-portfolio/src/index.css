@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-svg { vertical-align: baseline; }
+svg {
+    vertical-align: baseline;
+}
 
-.ant-layout-sider-children{
+.ant-layout-sider-children {
     @apply bg-neutral
 }
 
+.ant-card-actions {
+    @apply  !bg-base-100 !border-none
+}
 
-
+.my-popover .ant-popover-inner-content {
+    @apply  !bg-base-100 
+}

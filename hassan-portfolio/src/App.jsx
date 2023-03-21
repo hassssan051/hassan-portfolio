@@ -6,6 +6,9 @@ import { ContactsOutlined, FolderOutlined } from "@ant-design/icons";
 import Home from "./pages/Home";
 import CustomHeader from "./components/CustomHeader";
 import CustomSider from "./components/CustomSider";
+import ContactForm from "./components/ContactForm";
+import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
 
 const { Content } = Layout;
 
@@ -24,7 +27,7 @@ function App() {
     {
       title: "Projects",
       icon: <FolderOutlined className="text-[20px]" />,
-      component: <Home />,
+      component: <Projects />,
     },
     {
       title: "Resume",
@@ -34,7 +37,7 @@ function App() {
     {
       title: "Contact",
       icon: <ContactsOutlined className="text-[20px]" />,
-      component: <Home />,
+      component: <Contact />,
     },
   ];
   return (

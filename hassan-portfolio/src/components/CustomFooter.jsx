@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout } from "antd";
+import { Layout,Tooltip } from "antd";
 const { Footer } = Layout;
 
 export default function CustomFooter() {
@@ -21,7 +21,9 @@ export default function CustomFooter() {
           Hassan Zaidi <br />
           Providing reliable tech since{"  "}
           <span className="underline-offset-2 cursor-pointer underline text-primary-content">
-            1969
+            <Tooltip title="2001">
+            I was born.
+            </Tooltip>
           </span>
         </p>
         <p>Hassan Zaidi © 2023 - All right reserved</p>

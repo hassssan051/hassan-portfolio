@@ -1,5 +1,5 @@
 import React from "react";
-import {  Bars3BottomRightIcon } from "@heroicons/react/24/solid";
+import { Bars3BottomRightIcon } from "@heroicons/react/24/solid";
 
 export default function NavbarDropdown() {
   return (
@@ -15,7 +15,7 @@ export default function NavbarDropdown() {
         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-primary text-primary-content rounded-box w-52"
       >
         {["Home", "Resume", "Works", "Contact"].map((item) => (
-          <li>
+          <li key={item}>
             <a>{item}</a>
           </li>
         ))}
