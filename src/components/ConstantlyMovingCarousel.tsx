@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function ConstantlyMovingCarousel({ images }) {
-  const carouselRef = useRef(null);
-  const carouselItemsRef = useRef([]);
+interface ConstantlyMovingCarouselProps {
+  images: JSX.Element[];
+}
+
+export const ConstantlyMovingCarousel: React.FC<
+  ConstantlyMovingCarouselProps
+> = ({ images }) => {
+  const carouselRef = useRef<any>(null);
+  const carouselItemsRef = useRef<any>([]);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const [itemWidth, setItemWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,20 +18,22 @@ export default function ConstantlyMovingCarousel({ images }) {
     const carouselItems = carouselItemsRef.current;
     setCarouselWidth(carousel.offsetWidth);
     setItemWidth(carouselItems[0].offsetWidth);
-    console.log('carouselWidth:', carouselWidth);
-    console.log('itemWidth:', itemWidth);
+    console.log("carouselWidth:", carouselWidth);
+    console.log("itemWidth:", itemWidth);
   }, [carouselWidth, itemWidth]);
 
   useEffect(() => {
-    console.log('currentIndex:', currentIndex);
+    console.log("currentIndex:", currentIndex);
     const intervalId = setInterval(() => {
       const nextIndex = currentIndex + 1 < images.length ? currentIndex + 1 : 0;
       const scrollAmount = nextIndex * itemWidth - carouselWidth;
-      console.log('scrollAmount:', scrollAmount);
-      carouselRef.current.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth',
-      });
+      console.log("scrollAmount:", scrollAmount);
+      if (carouselRef?.current && carouselRef.current?.scrollTo) {
+        carouselRef.current.scrollTo({
+          left: scrollAmount,
+          behavior: "smooth",
+        });
+      }
       setCurrentIndex(nextIndex);
     }, 3000);
 
@@ -47,4 +55,4 @@ export default function ConstantlyMovingCarousel({ images }) {
       ))}
     </div>
   );
-}
+};

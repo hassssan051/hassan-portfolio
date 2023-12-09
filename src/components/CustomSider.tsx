@@ -1,27 +1,29 @@
 import {
-  InstagramOutlined,
-  LinkedinOutlined,
-  GithubOutlined,
-  TwitterOutlined,
-  MailFilled,
-  CalendarFilled,
-  PhoneFilled,
-  //   YoutubeOutlined,
-} from "@ant-design/icons";
-import { MapPinIcon } from "@heroicons/react/24/solid";
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  CalendarIcon,
+} from "@heroicons/react/24/solid";
 import ContactsList from "./ContactsList";
 import JobCarousel from "./JobCarousel";
-import MyImage1 from "../assets/hassan1.jpg";
-import { ReactIcon, DjangoIcon, FlaskIcon, MachineLearningIcon, NodeIcon, PythonIcon, TensorFlowIcon, WebDevIcon } from "../assets/Icons";
-import { Layout, Image, Tooltip, Popover, Typography } from "antd";
-import { openInNewTab } from "../utils";
-const { Sider } = Layout;
-const { Paragraph } = Typography;
-import ConstantlyMovingCarousel from "./ConstantlyMovingCarousel";
+import { Hassan2 } from "../assets";
+import {
+  ReactIcon,
+  DjangoIcon,
+  FlaskIcon,
+  MachineLearningIcon,
+  NodeIcon,
+  PythonIcon,
+  TensorFlowIcon,
+  WebDevIcon,
+} from "../assets/Icons";
+import { openInNewTab } from "../utils/utils";
+import { IconShow } from "./IconShow";
+import React from "react";
 
 export default function CustomSider() {
   return (
-    <Sider
+    <div
       style={{
         height: "100vh",
         position: "fixed",
@@ -30,20 +32,20 @@ export default function CustomSider() {
         minWidth: "350px",
       }}
       className="bg-neutral !w-[350px] !max-w-[350px] !flex-none overflow-auto scrollbar-thin scrollbar-track-rounded-md scrollbar-thumb-rounded-md scrollbar-track-base-100 scrollbar-thumb-base-content"
-      breakpoint="lg"
-      collapsedWidth="0"
     >
       <div className="flex flex-col gap-y-4 items-center py-10">
         <div className="avatar">
           <div className="w-56">
-            <Image className="rounded-xl" src={MyImage1} />
+            <img className="rounded-xl object-contain" src={Hassan2} />
           </div>
         </div>
         <h1 className="text-3xl font-semibold text-neutral-content ">
           Hassan Zaidi
         </h1>
-        <JobCarousel />
-        <div className="flex items-center mt-4 bg-base-100 rounded-xl">
+
+        <ContactsList />
+
+        {/* <div className="flex items-center mt-4 bg-base-100 rounded-xl">
           <Tooltip title="LinkedIn">
             <LinkedinOutlined
               className="text-[20px] p-4 text-accent cursor-pointer"
@@ -122,13 +124,12 @@ export default function CustomSider() {
               <MapPinIcon className="h-4 w-4 text-primary" />
             </span>
           </Popover>
-        </div>
+        </div> */}
         <div className="">
           {/* <ConstantlyMovingCarousel images={[<ReactIcon />, <DjangoIcon />, <FlaskIcon />, <MachineLearningIcon />, <NodeIcon />, <PythonIcon />, <TensorFlowIcon />, <WebDevIcon />]} /> */}
-
         </div>
         {/* <ContactsList /> */}
       </div>
-    </Sider>
+    </div>
   );
 }

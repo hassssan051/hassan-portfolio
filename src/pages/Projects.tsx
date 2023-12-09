@@ -1,5 +1,4 @@
 import React from "react";
-import { Tabs } from "antd";
 
 export default function Projects() {
   const items = [
@@ -38,12 +37,7 @@ export default function Projects() {
   return (
     <>
       <h1 className="text-4xl text-neutral-content font-bold">Projects</h1>
-      <Tabs
-        className="mt-6"
-        defaultActiveKey="1"
-        items={items}
-        onChange={onChange}
-      />
+    
     </>
   );
 }
