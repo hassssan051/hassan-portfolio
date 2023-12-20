@@ -1,3 +1,4 @@
+import { AiIcon, CloudIcon, WebDevIcon } from "../assets";
 import CardFlip from "../components/CardFlip";
 
 const IconsLinks = {
@@ -35,19 +36,95 @@ export default function Home() {
           type="hover"
           frontNode={
             <>
-              <div className="flex flex-col items-center justify-start gap-x-4">
-                {/* <img
-                  alt='Machine Learning'
-                  className='h-8 object-contain'
-                  src=''
-                /> */}
-                <div className="text-neutral-content text-xl font-bold text-center">
+             <div className="flex flex-col items-center justify-start gap-x-4">
+                <img
+                  alt="Machine Learning"
+                  className="h-14 object-contain rounded-xl "
+                  src={IconsLinks["Machine Learning Engineer"]}
+                />
+                <div className="text-neutral-content text-lg font-bold text-center mt-3">
+                  Machine Learning Engineer
+                </div>
+              </div>
+              
+            </>
+          }
+          backNode={
+            <>
+             <div className="flex flex-col items-center justify-start gap-x-4">
+                <img
+                  alt="Machine Learning"
+                  className="h-20 object-contain rounded-xl "
+                  src={AiIcon}
+                />
+                <div className="text-neutral-content text-lg font-bold text-center mt-3">
                   Machine Learning Engineer
                 </div>
               </div>
             </>
           }
-          backNode="Python"
+        />
+        <CardFlip
+          type="hover"
+          frontNode={
+            <>
+              <div className="flex flex-col items-center justify-start gap-x-4">
+                <img
+                  alt="Machine Learning"
+                  className="h-14 object-contain rounded-xl "
+                  src={IconsLinks["Azure"]}
+                />
+                <div className="text-neutral-content text-lg font-bold text-center mt-3">
+                  Azure Administration
+                </div>
+              </div>
+            </>
+          }
+          backNode={
+            <>
+              <div className="flex flex-col items-center justify-start gap-x-4">
+                <img
+                  alt="Machine Learning"
+                  className="h-20 object-contain rounded-xl "
+                  src={CloudIcon}
+                />
+                <div className="text-neutral-content text-lg font-bold text-center mt-3">
+                  Azure Administration
+                </div>
+              </div>
+            </>
+          }
+        />
+        <CardFlip
+          type="hover"
+          frontNode={
+            <>
+              <div className="flex flex-col items-center justify-start gap-x-4">
+                <img
+                  alt="Web Development"
+                  className="h-14 object-contain rounded-xl "
+                  src={IconsLinks["Web Development"]}
+                />
+                <div className="text-neutral-content text-lg font-bold text-center mt-3">
+                  Web Development
+                </div>
+              </div>
+            </>
+          }
+          backNode={
+            <>
+              <div className="flex flex-col items-center justify-start gap-x-4">
+                <img
+                  alt="Web Development"
+                  className="h-20 object-contain rounded-xl "
+                  src={WebDevIcon}
+                />
+                <div className="text-neutral-content text-lg font-bold text-center mt-3">
+                  Web Development
+                </div>
+              </div>
+            </>
+          }
         />
       </div>
     </>

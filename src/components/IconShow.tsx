@@ -5,23 +5,29 @@ interface IconShowProps {
   icon: React.ReactNode;
   value: string;
   shouldHide?: boolean;
+  actionHandler?: () => void;
 }
 
-export const IconShow: React.FC<IconShowProps> = ({ icon, value, shouldHide }) => {
+export const IconShow: React.FC<IconShowProps> = ({
+  icon,
+  value,
+  shouldHide,
+  actionHandler,
+}) => {
   const [isHovered, setIsHovered] = React.useState(false);
   const [isCopied, setIsCopied] = React.useState(false);
   const variants = {
     open: {
       opacity: 1,
       width: "auto",
-      transition: { duration: 0.3 },
+      transition: { duration: 0.3, type: "spring", stiffness: 300 },
       display: "flex",
     },
     closed: {
       opacity: 0,
       width: 0,
-      transition: { duration: 0.5 },
-    //   transitionEnd: { display: "none" },
+      transition: { duration: 0.8, type: "spring", stiffness: 300 },
+      //   transitionEnd: { display: "none" },
     },
   };
   //   hover:text-primary-focus hover:border-primary-focus
@@ -41,7 +47,7 @@ export const IconShow: React.FC<IconShowProps> = ({ icon, value, shouldHide }) =
   return (
     <motion.div
       onClick={() => {
-        navigator.clipboard.writeText("Islamabad, Pakistan");
+        actionHandler && actionHandler();
         setIsCopied(true);
       }}
       className="flex items-center border-2 border-primary-content rounded-xl  py-3 px-3 cursor-pointer overflow-hidden"

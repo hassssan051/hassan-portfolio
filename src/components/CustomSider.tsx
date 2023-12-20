@@ -1,135 +1,105 @@
-import {
-  MapPinIcon,
-  PhoneIcon,
-  EnvelopeIcon,
-  CalendarIcon,
-} from "@heroicons/react/24/solid";
 import ContactsList from "./ContactsList";
-import JobCarousel from "./JobCarousel";
 import { Hassan2 } from "../assets";
-import {
-  ReactIcon,
-  DjangoIcon,
-  FlaskIcon,
-  MachineLearningIcon,
-  NodeIcon,
-  PythonIcon,
-  TensorFlowIcon,
-  WebDevIcon,
-} from "../assets/Icons";
+import { AnimatePresence, motion } from "framer-motion";
 import { openInNewTab } from "../utils/utils";
 import { IconShow } from "./IconShow";
 import React from "react";
+import { LeftCircleFilled } from "@ant-design/icons";
 
 export default function CustomSider() {
+  const [isShown, setIsShown] = React.useState(false);
+  const variants = {
+    open: { x: 0 },
+    closed: { x: -350 },
+  };
   return (
-    <div
-      style={{
-        height: "100vh",
-        position: "fixed",
-        left: 0,
-        width: "350px",
-        minWidth: "350px",
-      }}
-      className="bg-neutral !w-[350px] !max-w-[350px] !flex-none overflow-auto scrollbar-thin scrollbar-track-rounded-md scrollbar-thumb-rounded-md scrollbar-track-base-100 scrollbar-thumb-base-content"
-    >
-      <div className="flex flex-col gap-y-4 items-center py-10">
-        <div className="avatar">
-          <div className="w-56">
-            <img className="rounded-xl object-contain" src={Hassan2} />
+    <AnimatePresence>
+      <motion.div
+        variants={variants}
+        initial="closed"
+        animate={isShown ? "open" : "closed"}
+        style={{
+          height: "100vh",
+          position: "absolute",
+          left: 0,
+          zIndex: "10",
+        }}
+        className="bg-neutral !w-[350px] px-4 py-10 !max-w-[350px] overflow-auto scrollbar-thin scrollbar-track-rounded-md scrollbar-thumb-rounded-md scrollbar-track-base-100 scrollbar-thumb-base-content"
+      >
+        <div className="absolute left-[300px]" style={{ display: "" }}>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+            }}
+          >
+            <LeftCircleFilled
+              rev={{ className: "" }}
+              onClick={() => setIsShown(!isShown)}
+              className="text-primary text-[40px] cursor-pointer "
+            />
+          </motion.div>
+        </div>
+        <div className="flex items-center w-full">
+          <div className="avatar mx-auto">
+            <div className="w-56">
+              <img className="rounded-xl object-contain" src={Hassan2} />
+            </div>
           </div>
         </div>
-        <h1 className="text-3xl font-semibold text-neutral-content ">
+        <h1 className="text-3xl font-semibold text-neutral-content w-full text-center mt-4">
           Hassan Zaidi
         </h1>
-
         <ContactsList />
-
-        {/* <div className="flex items-center mt-4 bg-base-100 rounded-xl">
-          <Tooltip title="LinkedIn">
-            <LinkedinOutlined
-              className="text-[20px] p-4 text-accent cursor-pointer"
-              onClick={() =>
-                openInNewTab(
-                  "https://www.linkedin.com/in/hassan-zaidi-00487a191/"
-                )
-              }
-            />
-          </Tooltip>
-          <Tooltip title="GitHub">
-            <GithubOutlined
-              className="text-[20px] p-4 text-accent cursor-pointer"
-              onClick={() =>
-                openInNewTab("https://github.com/hasssan051?tab=repositories")
-              }
-            />
-          </Tooltip>
-          <Tooltip title="Twitter">
-            <TwitterOutlined
-              className="text-[20px] p-4 text-accent cursor-pointer"
-              onClick={() => openInNewTab("https://twitter.com/Hassanzaidi247")}
-            />
-          </Tooltip>
-          <Tooltip title="Have better things to do, just put it here because 4 icons looked better">
-            <InstagramOutlined className="text-[20px] p-4 text-accent cursor-pointer" />
-          </Tooltip>
-        </div>
-
-        <div className="flex items-center mt-4 bg-base-100 rounded-xl">
-          <Popover
-            className="bg-base-100 my-popover"
-            popoverClassName="my-popover"
-            content={
-              <Paragraph className="text-base-100 " copyable>
-                +923350552250
-              </Paragraph>
-            }
-            title={<span className="text-base-100 text-xl">Phone</span>}
-          >
-            <PhoneFilled className="text-[20px] p-4 text-primary cursor-pointer" />
-          </Popover>
-          <Popover
-            className="bg-base-100 my-popover"
-            popoverClassName="my-popover"
-            content={
-              <Paragraph className="text-base-100 " copyable>
-                hassanzaidi4@gmail.com
-              </Paragraph>
-            }
-            title={<span className="text-base-100 text-xl">Email</span>}
-          >
-            <MailFilled className="text-[20px] p-4 text-primary cursor-pointer" />
-          </Popover>
-          <Popover
-            className="bg-base-100 my-popover"
-            popoverClassName="my-popover"
-            content={
-              <Paragraph className="text-base-100 ">Feb 4, 2001</Paragraph>
-            }
-            title={<span className="text-base-100 text-xl">D.O.B</span>}
-          >
-            <CalendarFilled className="text-[20px] p-4 text-primary cursor-pointer" />
-          </Popover>
-          <Popover
-            className="bg-base-100 my-popover"
-            popoverClassName="my-popover"
-            content={
-              <Paragraph className="text-base-100 ">
-                Islamabad, Pakistan
-              </Paragraph>
-            }
-            title={<span className="text-base-100 text-xl">Location</span>}
-          >
-            <span className="p-4 cursor-pointer">
-              <MapPinIcon className="h-4 w-4 text-primary" />
-            </span>
-          </Popover>
-        </div> */}
-        <div className="">
-          {/* <ConstantlyMovingCarousel images={[<ReactIcon />, <DjangoIcon />, <FlaskIcon />, <MachineLearningIcon />, <NodeIcon />, <PythonIcon />, <TensorFlowIcon />, <WebDevIcon />]} /> */}
-        </div>
-        {/* <ContactsList /> */}
-      </div>
-    </div>
+        {/* <Slider 
+        images={[
+          "https://img.icons8.com/external-becris-flat-becris/64/null/external-machine-learning-data-science-becris-flat-becris.png",
+          "https://img.icons8.com/color/48/null/tensorflow.png",
+          "https://img.icons8.com/stickers/100/null/python.png",
+          "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-web-development-seo-flaticons-lineal-color-flat-icons.png",
+          "https://img.icons8.com/fluency/48/null/node-js.png",
+          "https://img.icons8.com/bubbles/50/null/react.png",
+        ]}
+        
+        /> */}
+        {/* <motion.div
+          className="flex"
+          animate={{
+            x: [-400, -300, -200, -100, 0, 100, 200, 300, 400, 500],
+            transition: {
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 5,
+                ease: "linear",
+                bounce: 0.5,
+              },
+            },
+          }}
+          whileHover={{}} // stop animation on hover
+        >
+          <ReactIcon />
+          <DjangoIcon />
+          <FlaskIcon />
+          <MachineLearningIcon />
+          <NodeIcon />
+          <PythonIcon />
+          <TensorFlowIcon />
+          <WebDevIcon />
+        </motion.div> */}
+        {/* <div className="flex flex-wrap gap-3 px-10 justify-center">
+            <ReactIcon />
+            <DjangoIcon />
+            <FlaskIcon />
+            <MachineLearningIcon />
+            <NodeIcon />
+            <PythonIcon />
+            <TensorFlowIcon />
+            <WebDevIcon />
+          </div> */}
+      </motion.div>
+    </AnimatePresence>
   );
 }

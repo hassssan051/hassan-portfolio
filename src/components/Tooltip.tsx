@@ -1,4 +1,3 @@
-// Tooltip.js
 import { motion } from "framer-motion";
 
 const tooltipVariants = {

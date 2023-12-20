@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import NavbarDropdown from "./NavbarDropdown";
+import { motion } from "framer-motion";
 
 type Page = {
   title: string;
@@ -24,8 +25,11 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
       <Logo />
       <div className="bg-neutral mt-4 md:hidden lg:flex gap-x-7 items-center justify-between p-7 px-8 rounded-xl mr-15">
         {pages.map((page) => (
-          <div
+          <motion.div
             key={page.title}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 300 }}
             onClick={() => setSelectedPage(page)}
             className={`${
               selectedPage.title === page.title
@@ -35,7 +39,7 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
           >
             {page.icon}
             <div className="">{page.title}</div>
-          </div>
+          </motion.div>
         ))}
       </div>
       <NavbarDropdown />

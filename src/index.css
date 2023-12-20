@@ -7,9 +7,7 @@ svg {
 }
 
 body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  
+  @apply scrollbar-none
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
